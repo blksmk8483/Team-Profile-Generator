@@ -1,10 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const Employee = require('./lib/employee');
-const Engineer = require('./lib/engineer');
-const Intern = require('./lib/intern');
-const Manager = require('./lib/manager');
+const Employee = require('./lib/Employee');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const Manager = require('./lib/Manager');
 
 const generateHTML = require('./src/templateHTML.js')
 const teamMembers = [];
@@ -129,23 +129,5 @@ const buildTeamFile = () => {
     err ? console.log(err) : console.log('You are finished!'))
   };
 
-
-
-
-
-
-
-// // TODO: Create a function to initialize app
-// function init() {
-//   inquirer.prompt(managerQuestions).then((data) => {
-//     writeToFile("template.js", data)
-//   }
-//   )
-// }
-
-
-// // Function call to initialize app
-// init();
-
-
+  managerQuestions();
 
