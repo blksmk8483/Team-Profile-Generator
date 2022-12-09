@@ -104,7 +104,7 @@ const questionsLoop = () => {
       type: 'list',
       name: 'choice',
       message: 'If you would like to create a new team member, please choose from the following options:',
-      choices: ['New engineer', 'New intern', 'Not now']
+      choices: ['New engineer', 'New intern', 'Finished']
     }
   ]).then(managerChoice => {
     switch (managerChoice.choice) {
@@ -114,16 +114,16 @@ const questionsLoop = () => {
       case 'New intern':
         internQuestions();
         break;
-      default:
+      case 'Finished':
       // I need to build my team file
+      console.table(teamMembers)
       buildTeamFile();
+      return;
     }
   })
 };
 
-// I need to change my fs to have write to my team file (my index)
 
-// TODO: Create a function to write README file
 const buildTeamFile = () => {
   fs.writeFile('./dist/index.html', generateHTML(teamMembers), 'UTF-8', (err) => 
     err ? console.log(err) : console.log('You are finished!'))
